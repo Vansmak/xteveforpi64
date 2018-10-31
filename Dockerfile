@@ -1,31 +1,26 @@
-FROM ubuntu:18.04
+FROM alpine:latest
 MAINTAINER Hugo Blom hugo.blom1@gmail.com
 
-#update and install packages
-RUN \
- echo "**** install packages ****" && \
- apt-get update && \
- apt-get install -y \
-  sudo \
-  unzip \
-  man-db \
-  apt-utils \
-  curl
- 
-#set workdir and copy .sh
-WORKDIR /xteve
-COPY run-me.sh /xteve/
-COPY xteve /xteve/
+# Dependencies
+RUN apk add ca-certificates
 
-#install xteve
-RUN echo "**** install xteve ****" && \ 
- chmod +x /xteve/xteve
+# Add xteve binary
+ADD https://xteve.de:9443/download/?os=linux&arch=amd64&name=xteve&beta=false /xteve/xteve
 
-#make .sh executeble
-RUN chmod +x /xteve/run-me.sh
+# Set executable permissions
+RUN chmod +x /xteve/xteve
 
-#add volumes
-VOLUME /config
+# Volumes
+VOLUME /root/xteve
+VOLUME /tmp/xteve
 
-ENTRYPOINT ["/xteve/run-me.sh"]
+# Expose Ports for Access
+EXPOSE 34400
 
+# TODO: Healthcheck
+
+# Entrypoint should be the base command
+ENTRYPOINT ["/xteve/xteve"]
+
+# Command should be the basic working
+CMD ["-port=34400"]
