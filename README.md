@@ -1,7 +1,7 @@
 # Xteve docker container
 
 * Exposed Ports: 34400
-* Volumes: `/home/xteve`, `/tmp/xteve`
+* Volumes: `/root/xteve`, `/tmp/xteve`
 * TODO: Health Check Script
 
 ## Create directories on host for xteve volumes
