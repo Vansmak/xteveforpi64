@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.10.1
 MAINTAINER Hugo Blom hugo.blom1@gmail.com
 
 # Dependencies
