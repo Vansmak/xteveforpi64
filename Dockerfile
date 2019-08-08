@@ -17,7 +17,7 @@ RUN rm /tmp/xteve_amd64.zip
 RUN chmod +x /xteve/xteve
 
 # Volumes
-VOLUME /root/xteve
+VOLUME /root/.xteve
 VOLUME /tmp/xteve
 
 # Expose Ports for Access
