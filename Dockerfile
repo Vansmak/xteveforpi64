@@ -23,13 +23,15 @@ RUN addgroup -S xteve && adduser -S xteve -G xteve
 # Set user contexts
 USER xteve
 
-#Create folder structure for backups
+#Create folder structure for backups and tmp files
 RUN mkdir /home/xteve/.xteve/
 RUN mkdir /home/xteve/.xteve/backup/
+RUN mkdir /tmp/xteve
 
 #Set Permission on folders
 RUN chown xteve:xteve /home/xteve/.xteve/
 RUN chown xteve:xteve /home/xteve/.xteve/backup/
+RUN chown xteve:xteve /tmp/xteve
 
 # Volumes
 VOLUME /home/xteve/.xteve
