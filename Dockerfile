@@ -35,7 +35,6 @@ RUN chown xteve:xteve /tmp/xteve
 
 # Volumes
 VOLUME /home/xteve/.xteve
-VOLUME /tmp/xteve
 
 # Expose Ports for Access
 EXPOSE 34400
