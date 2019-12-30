@@ -1,3 +1,9 @@
+### Important! - Breaking Changes in the latest release
+* The volume for tmp files are removed, you need to remove this volume!
+* The configuration volume are moved and now located in `/home/xteve/.xteve`
+* All processes in the container are running as the user `xteve`
+- If you wish to run a version witout the changes above you can use the tag `release-2.0.0.0001`
+
 # Xteve 2 docker container
 * Exposed Ports: 34400
 * Volumes: `/home/xteve/.xteve`
