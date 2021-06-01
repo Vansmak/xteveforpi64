@@ -1,3 +1,6 @@
+#cloned from   bl0m1/xtevedocker with modifications from alturismo/xteve and
+#changed xteve version to arm64
+
 # Important! - Breaking Changes in the latest release
 
 * The volume for tmp files are removed, you need to remove this volume!
@@ -8,7 +11,7 @@
 
 * Exposed Ports: 34400
 * Volumes: `/home/xteve/.xteve`
-* FFmpeg and VLC buffer support
+* FFmpeg and VLC buffer support  -removed for now
 
 ## Create directories on host for xteve volumes
 
@@ -23,7 +26,7 @@ docker run -it -d \
 --name=xteve \
 -p 34400:34400 \
 -v ~/xteve_home:/home/xteve/.xteve \
-bl0m1/xtevedocker:latest
+vansmak/xteveforpi64:latest
 ```
 
 ## Usage (for running on host)
@@ -33,7 +36,7 @@ docker run -it -d \
 --name=xteve \
 --network=host \
 -v ~/xteve_home:/home/xteve/.xteve \
-bl0m1/xtevedocker:latest
+vansmak/xteveforpi64:latest
 ```
 
 ## Debugging
