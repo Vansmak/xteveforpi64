@@ -1,8 +1,15 @@
-FROM alpine:3.11.6
-LABEL maintainer="i.am.vansmak@gmail.com"
 
+FROM alpine:latest
+LABEL maintainer="i.am.vansmak@gmail.com"
+RUN apk update
+RUN apk upgrade
 # Dependencies
-RUN apk --no-cache add curl=7.67.0-r0 vlc=3.0.8-r7 ffmpeg=4.2.1-r3 tzdata=2020a-r0 bash=5.0.11-r1
+RUN apk add --no-cache ca-certificates
+RUN apk add --no-cache curl
+RUN apk add --no-cache bash busybox-suid su-exec
+RUN apk update && apk add --no-cache tzdata
+ENV TZ=America/Los_Angeles
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Remove APK cache
 RUN rm -rf /var/cache/apk/*
